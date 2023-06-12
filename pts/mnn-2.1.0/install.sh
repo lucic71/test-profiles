@@ -1,8 +1,18 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 rm -rf MNN-2.1.0
 tar -xf MNN-2.1.0.tar.gz
 cd MNN-2.1.0
+
+sed -i 's/return is_digit(c) | check_in_range/return is_digit(c) || check_in_range/g' 3rd_party/flatbuffers/include/flatbuffers/util.h
+sed -i '1680i TableKeyComparator(const TableKeyComparator &other) : buf_(other.buf_) {}' 3rd_party/flatbuffers/include/flatbuffers/flatbuffers.h
+sed -i '1690d' 3rd_party/flatbuffers/include/flatbuffers/flatbuffers.h
+sed -i '1690i TableKeyComparator &operator=(const TableKeyComparator &other) { \
+	buf_ = other.buf_;\
+	return *this;\
+	}' 3rd_party/flatbuffers/include/flatbuffers/flatbuffers.h
+grep -rl Werror | xargs sed -i 's/Werror/Werror -Wno-unused-but-set-variable/g'
+
 cd schema
 ./generate.sh
 cd ..
@@ -23,6 +33,7 @@ then
 fi
 
 cmake .. -DMNN_BUILD_BENCHMARK=true -DCMAKE_BUILD_TYPE=Release -DMNN_OPENMP=ON $EXTRA_CMAKE_FLAGS
+
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-unzip -o blender-2.80-windows64.zip
+unzip -o blender-2.81-windows64.zip
 unzip -o cycles_benchmark_20160228.zip
 
 mv benchmark/bmw27/*.blend ~
@@ -10,7 +10,7 @@ mv benchmark/pabellon_barcelona/*.blend ~
 rm -rf benchmark
 
 echo "#!/bin/bash
-cd blender-2.80-windows64
+cd blender-2.81-windows64
 BLEND_ARGS=\$@
 if [[ \$@ =~ .*CUDA.* ]]
 then
@@ -18,6 +18,9 @@ then
 elif [[ \$@ =~ .*OPENCL.* ]]
 then
 	COMPUTE_TYPE=\"OPENCL\"
+elif [[ \$@ =~ .*OPTIX.* ]]
+then
+	COMPUTE_TYPE=\"OPTIX\"
 elif [[ \$@ =~ .*NONE.* ]]
 then
 	COMPUTE_TYPE=\"NONE\"
@@ -36,7 +39,7 @@ bpy.context.preferences.addons['cycles'].preferences.devices[0].use = True
 bpy.ops.wm.save_userpref()\" > ~/blender-setgpu.py
 export HOME=\"\$DEBUG_HOME\"
 export PATH=\$DEBUG_PATH
-export PWD=\$DEBUG_HOME\blender-2.80-windows64
+export PWD=\$DEBUG_HOME\blender-2.81-windows64
 ./blender.exe -b --python \$DEBUG_HOME\blender-setgpu.py
 
 ./blender.exe \$BLEND_ARGS > \$LOG_FILE

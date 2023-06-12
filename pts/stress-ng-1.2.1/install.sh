@@ -3,12 +3,7 @@
 tar -xzf stress-ng-0.07.26.tar.gz
 
 cd ~/stress-ng-0.07.26
-if [ "$OS_TYPE" = "BSD" ]
-then
-	gmake
-else
-	make
-fi
+make
 echo $? > ~/install-exit-status
 
 cd ~

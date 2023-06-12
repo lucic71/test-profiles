@@ -1,6 +1,6 @@
 #!/bin/sh
 
-tar -xjf blender-2.80-linux-glibc217-x86_64.tar.bz2
+tar -xjf blender-2.81-linux-glibc217-x86_64.tar.bz2
 unzip -o cycles_benchmark_20160228.zip
 
 mv benchmark/bmw27/*.blend  ~
@@ -10,7 +10,7 @@ mv benchmark/pabellon_barcelona/*.blend ~
 rm -rf benchmark
 
 echo "#!/bin/bash
-cd blender-2.80-linux-glibc217-x86_64/
+cd blender-2.81-linux-glibc217-x86_64/
 BLEND_ARGS=\$@
 if [[ \$@ =~ .*CUDA.* ]]
 then
@@ -18,6 +18,9 @@ then
 elif [[ \$@ =~ .*OPENCL.* ]]
 then
 	COMPUTE_TYPE=\"OPENCL\"
+elif [[ \$@ =~ .*OPTIX.* ]]
+then
+	COMPUTE_TYPE=\"OPTIX\"
 elif [[ \$@ =~ .*NONE.* ]]
 then
 	COMPUTE_TYPE=\"NONE\"

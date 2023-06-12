@@ -1,0 +1,33 @@
+
+[1mTo Install:[0m    pts/z3
+
+
+[NOTICE] Trying to get property 'Downloads' of non-object:530
+
+========================================
+Installing Test: pts/z3
+========================================
+
+
+[NOTICE] Trying to get property 'Downloads' of non-object:530
+Finished download_test_files
+
+[NOTICE] ob_end_flush(): failed to delete and flush buffer. No buffer to delete or flush:1772
+tar (child): z3-4.12.1.tar.gz: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+/var/lib/phoronix-test-suite/test-profiles/pts/z3/install.sh: line 4: cd: z3-4.12.1: No such file or directory
+/var/lib/phoronix-test-suite/test-profiles/pts/z3/install.sh: line 5: ./configure: No such file or directory
+/var/lib/phoronix-test-suite/test-profiles/pts/z3/install.sh: line 6: cd: build: No such file or directory
+make: *** No rule to make target 'z3'.  Stop.
+tar (child): z3-4.12.1.tar.gz: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+/var/lib/phoronix-test-suite/test-profiles/pts/z3/install.sh: line 4: cd: z3-4.12.1: No such file or directory
+/var/lib/phoronix-test-suite/test-profiles/pts/z3/install.sh: line 5: ./configure: No such file or directory
+/var/lib/phoronix-test-suite/test-profiles/pts/z3/install.sh: line 6: cd: build: No such file or directory
+make: *** No rule to make target 'z3'.  Stop.
+
+

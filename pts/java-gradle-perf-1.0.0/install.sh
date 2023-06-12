@@ -1,15 +1,11 @@
 #!/bin/sh
 
 
-# Only get the tag we want
-git clone --depth 1 git@github.com:reactor/reactor-core.git
+tar -xf reactor-core-2.5.0m1.tar.xz
 cd reactor-core
-git fetch origin v2.5.0.M1:tags/v2.5.0.M1
-git checkout v2.5.0.M1
-
 # build once to get all dependencies
 ./gradlew build
-cd ..
+cd ~
 
 echo "#!/bin/sh
 cd reactor-core

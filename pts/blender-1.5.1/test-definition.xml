@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
-<!--Phoronix Test Suite v9.0.0-->
+<!--Phoronix Test Suite v9.2.0m2-->
 <PhoronixTestSuite>
   <TestInformation>
     <Title>Blender</Title>
-    <AppVersion>2.80</AppVersion>
+    <AppVersion>2.81</AppVersion>
     <Description>Blender is an open-source 3D creation software project. This test is of Blender's Cycles benchmark with various sample files. GPU computing via OpenCL or CUDA is supported.</Description>
     <ResultScale>Seconds</ResultScale>
     <Proportion>LIB</Proportion>
     <TimesToRun>3</TimesToRun>
   </TestInformation>
   <TestProfile>
-    <Version>1.5.1</Version>
+    <Version>1.6.0</Version>
     <SupportedPlatforms>Linux, Windows</SupportedPlatforms>
     <SoftwareType>Utility</SoftwareType>
     <TestType>System</TestType>
@@ -71,6 +71,10 @@
         <Entry>
           <Name>CUDA</Name>
           <Value>CUDA</Value>
+        </Entry>
+        <Entry>
+          <Name>NVIDIA OptiX</Name>
+          <Value>OPTIX</Value>
         </Entry>
       </Menu>
     </Option>

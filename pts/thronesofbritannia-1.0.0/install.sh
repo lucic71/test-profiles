@@ -43,7 +43,6 @@ if [ ! -f "${GAME_INSTALL_DIR}/ThronesOfBritannia.sh" ]; then
     exit 1
 fi
 
-
 # Gather the steam env variables the game runs with
 #
 echo "Gathering environment variables for game"
@@ -55,12 +54,16 @@ if [ -z "$GAME_PID" ]; then
     exit 1
 fi
 
-echo '#!/bin/sh' > steam-env-vars.sh
+echo '#!/bin/bash' > steam-env-vars.sh
 echo "# Collected steam environment for A Total War Saga: THRONES OF BRITANNIA\n# PID : $GAME_PID" >> steam-env-vars.sh
 while read -rd $'\0' ENV ; do
     NAME=$(echo "$ENV" | cut -zd= -f1); VAL=$(echo "$ENV" | cut -zd= -f2)
-    case $NAME in (*STEAM* | *Steam* | *steam* | HOME)
+    case $NAME in
+	*DBUS*) true
+	;;
+	*)
         echo "export $NAME=\"$VAL\""
+	;;
     esac
 done < "/proc/$GAME_PID/environ" >> steam-env-vars.sh
 killall -9 ThronesOfBritannia
@@ -90,6 +93,7 @@ mkdir -p "\${RESULTS_DIR}"
 cd "\${RESULTS_DIR}"
 true > "\$LOG_FILE"
 FPS_VALUES=\$( grep -A3 "frames per second" \$(ls -t | grep -P "benchmark_.*[0-9]+.txt" | head -n 1) | tail -n 3 )
+cat benchmark_*.txt >>  "\$LOG_FILE"
 echo "\${FPS_VALUES}" >> "\$LOG_FILE"
 EOM
 chmod +x thronesofbritannia

@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
-<!--Phoronix Test Suite v9.0.0-->
+<!--Phoronix Test Suite v9.2.0m2-->
 <PhoronixTestSuite>
   <Downloads>
     <Package>
-      <URL>https://download.blender.org/release/Blender2.80/blender-2.80-linux-glibc217-x86_64.tar.bz2</URL>
-      <MD5>6f8afe0326093e479cb5505a8c783336</MD5>
-      <SHA256>7276216e95b28c74306cec21b6d61e202cbe14035a15a77dbc45fe9d98fca7aa</SHA256>
-      <FileName>blender-2.80-linux-glibc217-x86_64.tar.bz2</FileName>
-      <FileSize>134886174</FileSize>
+      <URL>https://download.blender.org/release/Blender2.81/blender-2.81-linux-glibc217-x86_64.tar.bz2</URL>
+      <MD5>49fd7a97a2b8453b9ca130843e0fa27e</MD5>
+      <SHA256>e201e7c3dd46aae4a464ec764190199b0ca9ff2e51f9883cd869a4539f33c592</SHA256>
+      <FileName>blender-2.81-linux-glibc217-x86_64.tar.bz2</FileName>
+      <FileSize>173223670</FileSize>
       <PlatformSpecific>Linux</PlatformSpecific>
     </Package>
     <Package>
-      <URL>https://download.blender.org/release/Blender2.80/blender-2.80-windows64.zip</URL>
-      <MD5>f21bde617f1a4d4cd0314deffe0df4db</MD5>
-      <SHA256>9b737dee1b5ba8e7c6bb664b3dfe422697415405bebce58fb2b64e05af46d065</SHA256>
-      <FileName>blender-2.80-windows64.zip</FileName>
-      <FileSize>113731492</FileSize>
+      <URL>https://download.blender.org/release/Blender2.81/blender-2.81-windows64.zip</URL>
+      <MD5>52164927761a2965d2b843f2e5e3f6c4</MD5>
+      <SHA256>b350533d23b678d870a3e78a2a0e27e952dc7db49ab801f00025a148dea0d2f5</SHA256>
+      <FileName>blender-2.81-windows64.zip</FileName>
+      <FileSize>153245746</FileSize>
       <PlatformSpecific>Windows</PlatformSpecific>
     </Package>
     <Package>

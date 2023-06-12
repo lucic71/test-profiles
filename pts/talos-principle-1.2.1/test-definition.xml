@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!--Phoronix Test Suite v6.8.0-->
+<!--Phoronix Test Suite v8.6.0m1-->
 <PhoronixTestSuite>
   <TestInformation>
     <Title>The Talos Principle</Title>
@@ -17,6 +17,7 @@
     <License>Free</License>
     <Status>Verified</Status>
     <SupportedArchitectures>x86_64</SupportedArchitectures>
+    <RequiresDisplay>TRUE</RequiresDisplay>
     <EnvironmentSize>2</EnvironmentSize>
     <ProjectURL>http://store.steampowered.com/app/257510/</ProjectURL>
     <Maintainer>Michael Larabel</Maintainer>
@@ -25,33 +26,24 @@
     <Option>
       <DisplayName>Renderer</DisplayName>
       <Identifier>renderer</Identifier>
-      <ArgumentPrefix></ArgumentPrefix>
-      <ArgumentPostfix></ArgumentPostfix>
-      <DefaultEntry>0</DefaultEntry>
       <Menu>
         <Entry>
           <Name>OpenGL</Name>
           <Value>+gfx_strAPI "OpenGL"</Value>
-          <Message></Message>
         </Entry>
         <Entry>
           <Name>Vulkan</Name>
           <Value>+gfx_strAPI "VLK"</Value>
-          <Message></Message>
         </Entry>
       </Menu>
     </Option>
     <Option>
       <DisplayName>Resolution</DisplayName>
       <Identifier>auto-resolution</Identifier>
-      <ArgumentPrefix></ArgumentPrefix>
-      <ArgumentPostfix></ArgumentPostfix>
-      <DefaultEntry>0</DefaultEntry>
       <Menu>
         <Entry>
           <Name>$VIDEO_WIDTH x $VIDEO_HEIGHT</Name>
           <Value>+gfx_pixResWidth $VIDEO_WIDTH +gfx_pixResHeight $VIDEO_HEIGHT</Value>
-          <Message></Message>
         </Entry>
       </Menu>
     </Option>

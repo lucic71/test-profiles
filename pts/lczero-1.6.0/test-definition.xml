@@ -37,18 +37,6 @@
           <Value>blas</Value>
         </Entry>
         <Entry>
-          <Name>OpenCL</Name>
-          <Value>opencl</Value>
-        </Entry>
-        <Entry>
-          <Name>CUDA + cuDNN</Name>
-          <Value>cudnn</Value>
-        </Entry>
-        <Entry>
-          <Name>CUDA + cuDNN FP16</Name>
-          <Value>cudnn-fp16</Value>
-        </Entry>
-        <Entry>
           <Name>Eigen</Name>
           <Value>eigen</Value>
         </Entry>

@@ -5,7 +5,7 @@ tar xvf primesieve-$version.tar.gz
 cd primesieve-$version
 
 cmake . -DBUILD_SHARED_LIBS=OFF
-make -j $NUM_CPU_JOBS
+make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ..
 

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!--Phoronix Test Suite v7.6.0m2-->
+<!--Phoronix Test Suite v7.6.0-->
 <PhoronixTestSuite>
   <TestInformation>
     <Title>F1 2017</Title>
@@ -10,7 +10,7 @@
     <PreInstallMessage>This test will attempt to install the necessary game using your Steam account. If the test appears hung you may need to manually exit the Steam client.</PreInstallMessage>
   </TestInformation>
   <TestProfile>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <SupportedPlatforms>Linux</SupportedPlatforms>
     <SoftwareType>Game</SoftwareType>
     <TestType>Graphics</TestType>

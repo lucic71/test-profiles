@@ -3,6 +3,7 @@
 tar -xf synthmark-20201109.tar.xz
 cd synthmark-master
 sed -i 's/-Werror/-Wno-error/' linux/Makefile
+sed -i '/CC = g++/d' linux/Makefile
 make -f linux/Makefile
 echo $? > ~/install-exit-status
 

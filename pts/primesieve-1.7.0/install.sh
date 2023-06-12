@@ -7,7 +7,7 @@ cd primesieve-$version
 cmake . -DBUILD_SHARED_LIBS=OFF
 make -j $NUM_CPU_JOBS
 echo $? > ~/install-exit-status
-cd ..
+cd ~
 
 echo "#!/bin/sh
 primesieve-$version/./primesieve \$@ > \$LOG_FILE 2>&1
