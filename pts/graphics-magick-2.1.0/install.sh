@@ -5,7 +5,7 @@ unzip -o sample-photo-6000x4000-1.zip
 
 mkdir $HOME/gm_
 cd GraphicsMagick-1.3.38/
-LDFLAGS="-L$HOME/gm_/lib" CPPFLAGS="-I$HOME/gm_/include" ./configure --without-perl --prefix=$HOME/gm_ --without-png > /dev/null
+LDFLAGS="-L$HOME/gm_/lib" CPPFLAGS="-I$HOME/gm_/include" ./configure --without-perl --prefix=$HOME/gm_ --without-png --disable-openmp > /dev/null
 if [ $OS_TYPE = "BSD" ]
 then
 	gmake -j $NUM_CPU_CORES
@@ -29,6 +29,6 @@ rm -rf gm_/share/man/
 ./gm_/bin/gm convert sample-photo-6000x4000.JPG input.mpc
 
 echo "#!/bin/sh
-OMP_NUM_THREADS=\$NUM_CPU_CORES ./gm_/bin/gm benchmark -duration 60 convert input.mpc \$@ null: > \$LOG_FILE 2>&1
+./gm_/bin/gm benchmark -duration 60 convert input.mpc \$@ null: > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > graphics-magick
 chmod +x graphics-magick

@@ -2,7 +2,7 @@
 
 tar -zxvf hmmer-3.3.2.tar.gz
 cd hmmer-3.3.2/
-./configure --enable-mpi
+./configure
 if [ $OS_TYPE = "BSD" ]
 then
 	gmake -j $NUM_CPU_CORES

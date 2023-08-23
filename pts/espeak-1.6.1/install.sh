@@ -4,6 +4,7 @@ tar -zxvf gutenberg-science.tar.gz
 tar -xf espeak-ng-20200907.tar.xz
 
 cd espeak-ng-master
+sed -i 's/= pho;/= (intptr_t) pho;/g' src/libespeak-ng/synthesize.c
 ./autogen.sh
 ./configure --prefix=$HOME/espeak_
 make # build seems to have problems with multiple cores

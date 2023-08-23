@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This one needs a version higher or eq to go 1.16
+
 mkdir $HOME/httpd_
 
 tar -xf http-test-files-1.tar.xz
@@ -10,10 +12,11 @@ mv apr-1.7.0 httpd-2.4.48/srclib/apr
 mv apr-util-1.6.1 httpd-2.4.48/srclib/apr-util
 
 cd httpd-2.4.48/
-./configure --prefix=$HOME/httpd_ --with-included-apr
 
 CFLAGS+=" -DAPR_IOVEC_DEFINED=1 "
 sed -i 's/#error Can not determine the proper size for pid_t/#define APR_PID_T_FMT "d"/' srclib/apr/include/apr.h
+
+./configure --prefix=$HOME/httpd_ --with-included-apr
 
 if [ "$OS_TYPE" = "BSD" ]
 then
