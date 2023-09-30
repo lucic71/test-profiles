@@ -21,12 +21,12 @@ then
 fi
 
 cd fftw-mr
-./configure --enable-float --enable-sse --enable-threads $AVX_TUNING
+./configure --enable-float --enable-neon --enable-threads $AVX_TUNING
 make -j $NUM_CPU_JOBS
 echo $? > ~/install-exit-status
 
 cd ~/fftw-stock
-./configure --enable-threads
+./configure --enable-threads --enable-neon
 make -j $NUM_CPU_JOBS
 
 cd ~/
