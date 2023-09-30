@@ -35,11 +35,12 @@ patch -p1 <<'EOT'
  	GtkTextIter iter;
 --- gtkperf/src/callbacks.h	2005-10-30 10:21:23.000000000 +0000
 +++ gtkperf-patched/src/callbacks.h	2008-05-23 23:22:30.000000000 +0100
-@@ -13,6 +13,7 @@
+@@ -13,6 +13,8 @@
  void on_cmdline_run_all ();
  void on_cmdline_help () ;
  void on_cmdline_count (char *optarg) ;
 +void on_cmdline_test (char *optarg) ;
++void setup_appdata(AppData * appdata_in);
  void on_window_main_show (AppData * data);
 
  gboolean
