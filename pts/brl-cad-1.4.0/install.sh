@@ -1,5 +1,8 @@
 #!/bin/sh
 tar -xf brlcad-7.34.0.tar.bz2
+sed -i \
+	'154s/.*/#if (defined(_M_X64) || defined(_M_ARM64) || defined(_M_IX86) || defined(__i386__) || defined(__x86_64__) || defined(__x86_64) || defined(__aarch64__))/g' \
+	brlcad-7.34.0/src/other/openNURBS/opennurbs_system_runtime.h
 cp brlcad-7.34.0/src/other/libpng/scripts/pnglibconf.h.prebuilt brlcad-7.34.0/src/other/libpng/pnglibconf.h
 mkdir brlcad-7.34.0/build
 cd brlcad-7.34.0/build

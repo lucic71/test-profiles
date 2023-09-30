@@ -5,6 +5,8 @@ mkdir $HOME/gtkperf_env
 tar -zxvf gtkperf_0.40.tar.gz
 cd gtkperf/
 
+cp /usr/share/automake-`automake --version | head -n1 | awk -F' ' '{print $4}' | rev | cut -c3- | rev`/config.guess .
+
 patch -p1 <<'EOT'
 --- gtkperf/src/callbacks.c	2005-10-30 11:33:42.000000000 +0000
 +++ gtkperf-patched/src/callbacks.c	2008-05-23 23:41:17.000000000 +0100
