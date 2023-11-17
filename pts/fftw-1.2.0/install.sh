@@ -12,21 +12,25 @@ if [ $OS_TYPE = "Linux" ]
 then
     if grep avx512 /proc/cpuinfo > /dev/null
     then
-	AVX_TUNING="$AVX_TUNING --enable-avx512"
+	AVX_TUNING="$AVX_TUNING --enable-sse --enable-avx512"
     fi
     if grep avx2 /proc/cpuinfo > /dev/null
     then
-	AVX_TUNING="$AVX_TUNING --enable-avx2"
+	AVX_TUNING="$AVX_TUNING --enable-sse --enable-avx2"
+    fi
+    if `lscpu | grep -i arm > /dev/null`
+    then
+	AVX_TUNING="$AVX_TUNING --enable-neon"
     fi
 fi
 
 cd fftw-mr
-./configure --enable-float --enable-neon --enable-threads $AVX_TUNING
+./configure --enable-float --enable-threads $AVX_TUNING
 make -j $NUM_CPU_JOBS
 echo $? > ~/install-exit-status
 
 cd ~/fftw-stock
-./configure --enable-threads --enable-neon
+./configure --enable-threads $AVX_TUNING
 make -j $NUM_CPU_JOBS
 
 cd ~/
