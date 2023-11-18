@@ -10,10 +10,14 @@ cd rnnoise-git
 ./configure
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
+if `lscpu | grep -i arm > /dev/null`
+then
+	NUMACTL="numactl --membind=0 --physcpubind=0"
+fi
 
 cd ~
 echo "#!/bin/sh
 cd rnnoise-git
-./examples/rnnoise_demo  ../sample-audio-long.raw out.raw
+$NUMACTL ./examples/rnnoise_demo  ../sample-audio-long.raw out.raw
 echo \$? > ~/test-exit-status" > rnnoise
 chmod +x rnnoise

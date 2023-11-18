@@ -16,8 +16,13 @@ echo $? > ~/install-exit-status
 
 cd ~
 
+if `lscpu | grep -i arm > /dev/null`
+then
+	NUMACTL="numactl --membind=0 --physcpubind=0"
+fi
+
 echo "#!/bin/sh
 cd libjpeg-turbo-2.1.0/build
-./tjbench ../../jpeg-test-1.JPG -benchtime 20 -warmup 5 -nowrite > \$LOG_FILE
+$NUMACTL ./tjbench ../../jpeg-test-1.JPG -benchtime 20 -warmup 5 -nowrite > \$LOG_FILE
 echo \$? > ~/test-exit-status" > tjbench
 chmod +x tjbench

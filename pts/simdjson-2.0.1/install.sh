@@ -12,8 +12,13 @@ make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
 
+if `lscpu | grep -i arm > /dev/null`
+then
+	NUMACTL="numactl --membind=0 --physcpubind=0"
+fi
+
 echo "#!/bin/sh
 cd simdjson-2.0.4/build/benchmark
-./bench_ondemand --benchmark_min_time=30 --benchmark_filter=\$@\<simdjson_ondemand\> > \$LOG_FILE 2>&1
+$NUMACTL ./bench_ondemand --benchmark_min_time=30 --benchmark_filter=\$@\<simdjson_ondemand\> > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > simdjson
 chmod +x simdjson

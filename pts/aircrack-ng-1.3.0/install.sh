@@ -18,9 +18,14 @@ else
 fi
 echo $? > ~/install-exit-status
 
+if `lscpu | grep -i arm > /dev/null`
+then
+	NUMACTL="numactl --membind=0 --physcpubind=0-79"
+fi
+
 cd ~
 echo "#!/bin/sh
 cd aircrack-ng-1.7
-./aircrack-ng -p \$NUM_CPU_CORES \$@  2>&1 | tr '\\r' '\\n' | awk -v max=0 '{if(\$1>max){max=\$1}}END{print max \" k/s\"}' > \$LOG_FILE
+$NUMACTL ./aircrack-ng -p \$NUM_CPU_CORES \$@  2>&1 | tr '\\r' '\\n' | awk -v max=0 '{if(\$1>max){max=\$1}}END{print max \" k/s\"}' > \$LOG_FILE
 echo \$? > ~/test-exit-status" > aircrack-ng
 chmod +x aircrack-ng

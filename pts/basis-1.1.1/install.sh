@@ -7,9 +7,14 @@ cmake CMakeLists.txt -DCMAKE_BUILD_TYPE=Release
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
+if `lscpu | grep -i arm > /dev/null`
+then
+	NUMACTL="numactl --membind=0 --physcpubind=0"
+fi
+
 cd ~
 echo "#!/bin/sh
 cd basis_universal-1.13/bin
-./basisu \$@ ~/sample-*.png > \$LOG_FILE 2>&1
+$NUMACTL ./basisu -no_multithreading \$@ ~/sample-*.png > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > basis
 chmod +x basis

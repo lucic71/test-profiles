@@ -10,19 +10,24 @@ cd ~/redis-7.0.4
 make MALLOC=libc -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
+if `lscpu | grep -i arm > /dev/null`
+then
+	NUMACTL="numactl --membind=0 --physcpubind=0-79"
+fi
+
 cd ~
 echo "#!/bin/sh
 cd ~/redis-7.0.4
 
-echo \"io-threads \$NUM_CPU_PHYSICAL_CORES
+echo \"io-threads \$NUM_CPU_CORES
 io-threads-do-reads yes
 tcp-keepalive 0\" > redis.conf
 
-./src/redis-server redis.conf &
+$NUMACTL ./src/redis-server redis.conf &
 REDIS_SERVER_PID=\$!
 sleep 6
 
-./src/redis-benchmark \$@ > \$LOG_FILE
+$NUMACTL ./src/redis-benchmark \$@ > \$LOG_FILE
 kill \$REDIS_SERVER_PID
 sed \"s/\\\"/ /g\" -i \$LOG_FILE" > redis
 chmod +x redis

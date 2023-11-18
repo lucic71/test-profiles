@@ -33,11 +33,16 @@ cd ~/fftw-stock
 ./configure --enable-threads $AVX_TUNING
 make -j $NUM_CPU_JOBS
 
+if `lscpu | grep -i arm > /dev/null`
+then
+	NUMACTL="numactl --membind=0 --physcpubind=0"
+fi
+
 cd ~/
 echo "
 #!/bin/sh
 
-./\$@ > \$LOG_FILE 2>&1
+$NUMACTL ./\$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status
 " > fftw
 
