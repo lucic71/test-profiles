@@ -10,7 +10,7 @@
       <FileSize>60386658</FileSize>
     </Package>
     <Package>
-      <URL>ttps://cdn.artec3d.com/content-hub-3dmodels/church-facade-ply.zip</URL>
+      <URL>https://cdn.artec3d.com/content-hub-3dmodels/church-facade-ply.zip</URL>
       <MD5>397ea673bf245456c925615a09295619</MD5>
       <SHA256>d89b9efb2b5866c175b6d5b8a41acbc43e996829a3b5386b80216b30a0200744</SHA256>
       <FileName>church-facade-ply.zip</FileName>
