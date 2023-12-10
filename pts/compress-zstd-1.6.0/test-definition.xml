@@ -35,7 +35,7 @@
           <Value>-b3</Value>
         </Entry>
         <Entry>
-          <Name>3, Long Mode</Name>
+          <Name>3 Long Mode</Name>
           <Value>-b3 --long</Value>
         </Entry>
         <Entry>
@@ -43,7 +43,7 @@
           <Value>-b8</Value>
         </Entry>
         <Entry>
-          <Name>8, Long Mode</Name>
+          <Name>8 Long Mode</Name>
           <Value>-b8 --long</Value>
         </Entry>
         <Entry>
@@ -55,7 +55,7 @@
           <Value>-b19</Value>
         </Entry>
         <Entry>
-          <Name>19, Long Mode</Name>
+          <Name>19 Long Mode</Name>
           <Value>-b19 --long</Value>
         </Entry>
       </Menu>
