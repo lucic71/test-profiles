@@ -1,9 +1,6 @@
 #!/bin/sh
 
-if `lscpu | grep -i arm > /dev/null`
-then
-	NUMACTL="numactl --membind=0 --physcpubind=0-79"
-fi
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 
 echo "#!/bin/sh
 

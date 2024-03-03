@@ -11,18 +11,9 @@ else
 	echo $? > ~/install-exit-status
 fi
 cd ~
-if `lscpu | grep -i arm > /dev/null`
-then
-	NUMACTLMP="numactl --membind=0 --physcpubind=0-79"
-	NUMACTL="numactl --membind=0 --physcpubind=0"
-fi
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 echo "#!/bin/bash
 cd QuantLib-1.32/build
-if [ \$@ == "--mp" ]
-then
-	$NUMACTLMP ./test-suite/quantlib-benchmark --mp=\$NUM_CPU_CORES > \$LOG_FILE 2>&1
-else
-	$NUMACTL ./test-suite/quantlib-benchmark > \$LOG_FILE 2>&1
-fi
+$NUMACTL ./test-suite/quantlib-benchmark > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > quantlib
 chmod +x quantlib

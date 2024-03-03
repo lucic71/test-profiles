@@ -4,13 +4,10 @@ cd zstd-1.5.4
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
-if `lscpu | grep -i arm > /dev/null`
-then
-	NUMACTL="numactl --membind=0 --physcpubind=0-79"
-fi
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 cat > compress-zstd <<EOT
 #!/bin/sh
-$NUMACTL ./zstd-1.5.4/zstd -T\$NUM_CPU_CORES \$@ silesia.tar > \$LOG_FILE 2>&1
+$NUMACTL ./zstd-1.5.4/zstd -T1 \$@ silesia.tar > \$LOG_FILE 2>&1
 sed -i -e "s/\r/\n/g" \$LOG_FILE 
 EOT
 chmod +x compress-zstd

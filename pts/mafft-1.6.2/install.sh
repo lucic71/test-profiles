@@ -40,10 +40,11 @@ then
 	sed -i -e "s|/bin/bash|/usr/pkg/bin/bash|g" mafft_/mafft
 fi
 
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 cat>mafft<<EOT
 #!/bin/sh
 cd mafft_/
-./mafft --thread \$NUM_CPU_CORES --auto mafft-ex1-lsu-rna.txt > \$LOG_FILE
+$NUMACTL ./mafft --thread 1 --auto mafft-ex1-lsu-rna.txt > \$LOG_FILE
 echo \$? > ~/test-exit-status
 EOT
 chmod +x mafft

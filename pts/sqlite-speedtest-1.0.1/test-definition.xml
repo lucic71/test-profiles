@@ -24,7 +24,7 @@
   </TestProfile>
   <TestSettings>
     <Default>
-      <Arguments>--multithread --size 1000</Arguments>
+      <Arguments>--memdb --size 1000</Arguments>
     </Default>
   </TestSettings>
 </PhoronixTestSuite>

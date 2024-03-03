@@ -9,10 +9,7 @@ echo $? > ~/install-exit-status
 make install
 cd ~
 rm -rf espeak-ng-1.51
-if `lscpu | grep -i arm > /dev/null`
-then
-	NUMACTL="numactl --membind=0 --physcpubind=0"
-fi
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 echo "#!/bin/sh
 cd espeak_/bin/
 LD_LIBRARY_PATH=\$HOME/espeak_/lib/:\$LD_LIBRARY_PATH $NUMACTL ./espeak-ng -f ~/gutenberg-science.txt -w espeak-output 2>&1

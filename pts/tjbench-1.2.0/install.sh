@@ -16,10 +16,7 @@ echo $? > ~/install-exit-status
 
 cd ~
 
-if `lscpu | grep -i arm > /dev/null`
-then
-	NUMACTL="numactl --membind=0 --physcpubind=0"
-fi
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 
 echo "#!/bin/sh
 cd libjpeg-turbo-2.1.0/build

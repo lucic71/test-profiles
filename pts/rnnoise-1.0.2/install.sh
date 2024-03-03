@@ -10,10 +10,7 @@ cd rnnoise-git
 ./configure
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
-if `lscpu | grep -i arm > /dev/null`
-then
-	NUMACTL="numactl --membind=0 --physcpubind=0"
-fi
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 
 cd ~
 echo "#!/bin/sh

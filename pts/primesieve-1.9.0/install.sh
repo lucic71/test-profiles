@@ -15,7 +15,8 @@ else
 fi
 cd ~
 
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 echo "#!/bin/sh
-primesieve-$version/./primesieve \$@ > \$LOG_FILE 2>&1
+$NUMACTL primesieve-$version/./primesieve -t 1 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > primesieve-test
 chmod +x primesieve-test

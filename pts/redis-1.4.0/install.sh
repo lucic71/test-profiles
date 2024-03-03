@@ -10,16 +10,13 @@ cd ~/redis-7.0.4
 make MALLOC=libc -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
-if `lscpu | grep -i arm > /dev/null`
-then
-	NUMACTL="numactl --membind=0 --physcpubind=0-79"
-fi
+NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
 
 cd ~
 echo "#!/bin/sh
 cd ~/redis-7.0.4
 
-echo \"io-threads \$NUM_CPU_CORES
+echo \"io-threads 1
 io-threads-do-reads yes
 tcp-keepalive 0\" > redis.conf
 
