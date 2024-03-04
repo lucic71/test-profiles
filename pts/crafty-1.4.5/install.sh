@@ -21,8 +21,8 @@ echo $? > ~/install-exit-status
 
 cd ~
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 echo "#!/bin/sh
-$NUMACTL ./crafty \$@ > \$LOG_FILE 2>&1
+$TASKSET ./crafty \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > crafty-benchmark
 chmod +x crafty-benchmark

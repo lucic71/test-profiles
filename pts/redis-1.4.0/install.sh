@@ -10,7 +10,7 @@ cd ~/redis-7.0.4
 make MALLOC=libc -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 
 cd ~
 echo "#!/bin/sh
@@ -20,11 +20,11 @@ echo \"io-threads 1
 io-threads-do-reads yes
 tcp-keepalive 0\" > redis.conf
 
-$NUMACTL ./src/redis-server redis.conf &
+$TASKSET ./src/redis-server redis.conf &
 REDIS_SERVER_PID=\$!
 sleep 6
 
-$NUMACTL ./src/redis-benchmark \$@ > \$LOG_FILE
+taskset -c 1 ./src/redis-benchmark \$@ > \$LOG_FILE
 kill \$REDIS_SERVER_PID
 sed \"s/\\\"/ /g\" -i \$LOG_FILE" > redis
 chmod +x redis

@@ -8,10 +8,10 @@ cd ngspice-34
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 
 echo "#!/bin/sh
 
 cd ngspice-34
-$NUMACTL ./src/ngspice \$@ > \$LOG_FILE" > ngspice
+$TASKSET ./src/ngspice \$@ > \$LOG_FILE" > ngspice
 chmod +x ngspice

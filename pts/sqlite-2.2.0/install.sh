@@ -11,7 +11,7 @@ cd ..
 rm -rf sqlite-autoconf-3410200/
 if `lscpu | grep -i arm > /dev/null`
 then
-	NUMACTL="numactl --membind=0 --physcpubind=0-31"
+	TASKSET="numactl --membind=0 --physcpubind=0-31"
 fi
 echo "#!/bin/bash
 thread_num=\$1
@@ -23,9 +23,9 @@ cat sqlite-2500-insertions.txt > sqlite-insertions.txt
 do_test() {
     DB=benchmark-\$1.db
     ./sqlite_/bin/sqlite3 \$DB  \"CREATE TABLE pts1 ('I' SMALLINT NOT NULL, 'DT' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 'F1' VARCHAR(4) NOT NULL, 'F2' VARCHAR(16) NOT NULL);\"
-    cat sqlite-insertions.txt | $NUMACTL ./sqlite_/bin/sqlite3 \$DB
-    cat sqlite-insertions.txt | $NUMACTL ./sqlite_/bin/sqlite3 \$DB
-    cat sqlite-insertions.txt | $NUMACTL ./sqlite_/bin/sqlite3 \$DB
+    cat sqlite-insertions.txt | $TASKSET ./sqlite_/bin/sqlite3 \$DB
+    cat sqlite-insertions.txt | $TASKSET ./sqlite_/bin/sqlite3 \$DB
+    cat sqlite-insertions.txt | $TASKSET ./sqlite_/bin/sqlite3 \$DB
 }
 pids=\"\"
 for i in \$(seq 1 \$thread_num)

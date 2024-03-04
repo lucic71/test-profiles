@@ -16,10 +16,10 @@ echo $? > ~/install-exit-status
 
 cd ~
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 
 echo "#!/bin/sh
 cd libjpeg-turbo-2.1.0/build
-$NUMACTL ./tjbench ../../jpeg-test-1.JPG -benchtime 20 -warmup 5 -nowrite > \$LOG_FILE
+$TASKSET ./tjbench ../../jpeg-test-1.JPG -benchtime 20 -warmup 5 -nowrite > \$LOG_FILE
 echo \$? > ~/test-exit-status" > tjbench
 chmod +x tjbench

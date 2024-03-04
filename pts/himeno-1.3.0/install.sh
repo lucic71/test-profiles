@@ -13,8 +13,8 @@ fi
 $CC himenobmtxpa.c -O3 $CFLAGS -o himenobmtxpa
 echo $? > ~/install-exit-status
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 echo "#!/bin/sh
-$NUMACTL ./himenobmtxpa s > \$LOG_FILE 2>&1
+$TASKSET ./himenobmtxpa s > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > himeno
 chmod +x himeno

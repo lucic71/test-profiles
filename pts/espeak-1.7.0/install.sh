@@ -9,9 +9,9 @@ echo $? > ~/install-exit-status
 make install
 cd ~
 rm -rf espeak-ng-1.51
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 echo "#!/bin/sh
 cd espeak_/bin/
-LD_LIBRARY_PATH=\$HOME/espeak_/lib/:\$LD_LIBRARY_PATH $NUMACTL ./espeak-ng -f ~/gutenberg-science.txt -w espeak-output 2>&1
+LD_LIBRARY_PATH=\$HOME/espeak_/lib/:\$LD_LIBRARY_PATH $TASKSET ./espeak-ng -f ~/gutenberg-science.txt -w espeak-output 2>&1
 echo \$? > ~/test-exit-status" > espeak
 chmod +x espeak

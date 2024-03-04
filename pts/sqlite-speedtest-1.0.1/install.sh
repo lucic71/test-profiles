@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 
 tar -xf sqlite-330-for-speedtest.tar.gz
 cd sqlite
@@ -17,6 +17,6 @@ cd ~
 
 echo "#!/bin/sh
 cd sqlite
-$NUMACTL ./speedtest1 \$@ > \$LOG_FILE 2>&1
+$TASKSET ./speedtest1 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > sqlite-speedtest
 chmod +x sqlite-speedtest

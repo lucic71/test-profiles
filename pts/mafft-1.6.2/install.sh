@@ -40,11 +40,11 @@ then
 	sed -i -e "s|/bin/bash|/usr/pkg/bin/bash|g" mafft_/mafft
 fi
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 cat>mafft<<EOT
 #!/bin/sh
 cd mafft_/
-$NUMACTL ./mafft --thread 1 --auto mafft-ex1-lsu-rna.txt > \$LOG_FILE
+$TASKSET ./mafft --thread 1 --auto mafft-ex1-lsu-rna.txt > \$LOG_FILE
 echo \$? > ~/test-exit-status
 EOT
 chmod +x mafft

@@ -10,10 +10,10 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
 cmake --build . -- -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 
 cd ~
 echo "#!/bin/sh
-$NUMACTL ./libjxl-0.7.0/build/tools/cjxl --num_threads=1 \$@ > \$LOG_FILE 2>&1
+$TASKSET ./libjxl-0.7.0/build/tools/cjxl --num_threads=1 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > jpegxl
 chmod +x jpegxl

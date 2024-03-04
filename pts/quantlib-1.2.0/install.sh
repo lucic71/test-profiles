@@ -11,9 +11,9 @@ else
 	echo $? > ~/install-exit-status
 fi
 cd ~
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 echo "#!/bin/bash
 cd QuantLib-1.32/build
-$NUMACTL ./test-suite/quantlib-benchmark > \$LOG_FILE 2>&1
+$TASKSET ./test-suite/quantlib-benchmark > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > quantlib
 chmod +x quantlib

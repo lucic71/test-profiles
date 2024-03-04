@@ -5,9 +5,9 @@ cd openssl-3.1.0
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 echo "#!/bin/sh
 cd openssl-3.1.0
-LD_LIBRARY_PATH=.:\$LD_LIBRARY_PATH $NUMACTL ./apps/openssl speed -multi 1 -seconds 30 \$@ > \$LOG_FILE 2>&1
+LD_LIBRARY_PATH=.:\$LD_LIBRARY_PATH $TASKSET ./apps/openssl speed -multi 1 -seconds 30 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > openssl
 chmod +x openssl

@@ -18,11 +18,11 @@ else
 fi
 echo $? > ~/install-exit-status
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 
 cd ~
 echo "#!/bin/sh
 cd aircrack-ng-1.7
-$NUMACTL ./aircrack-ng -p 1 \$@  2>&1 | tr '\\r' '\\n' | awk -v max=0 '{if(\$1>max){max=\$1}}END{print max \" k/s\"}' > \$LOG_FILE
+$TASKSET ./aircrack-ng -p 1 \$@  2>&1 | tr '\\r' '\\n' | awk -v max=0 '{if(\$1>max){max=\$1}}END{print max \" k/s\"}' > \$LOG_FILE
 echo \$? > ~/test-exit-status" > aircrack-ng
 chmod +x aircrack-ng

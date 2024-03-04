@@ -33,13 +33,13 @@ cd ~/fftw-stock
 ./configure --enable-threads $AVX_TUNING
 make -j $NUM_CPU_JOBS
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 
 cd ~/
 echo "
 #!/bin/sh
 
-$NUMACTL ./\$@ > \$LOG_FILE 2>&1
+$TASKSET ./\$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status
 " > fftw
 

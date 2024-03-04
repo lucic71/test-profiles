@@ -6,8 +6,8 @@ $CC $CFLAGS -o scimark2 *.c -lm
 echo $? > ~/install-exit-status
 cd ..
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 echo "#!/bin/sh
 cd scimark2_files/
-$NUMACTL ./scimark2 -large > \$LOG_FILE 2>&1" > scimark2
+$TASKSET ./scimark2 -large > \$LOG_FILE 2>&1" > scimark2
 chmod +x scimark2

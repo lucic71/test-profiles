@@ -15,8 +15,8 @@ else
 fi
 cd ~
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
+TASKSET="taskset -c 0"
 echo "#!/bin/sh
-$NUMACTL primesieve-$version/./primesieve -t 1 \$@ > \$LOG_FILE 2>&1
+$TASKSET primesieve-$version/./primesieve -t 1 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > primesieve-test
 chmod +x primesieve-test
