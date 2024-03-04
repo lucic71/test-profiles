@@ -13,7 +13,7 @@ fi
 $CC himenobmtxpa.c -O3 $CFLAGS -o himenobmtxpa
 echo $? > ~/install-exit-status
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 echo "#!/bin/sh
 $NUMACTL ./himenobmtxpa s > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > himeno

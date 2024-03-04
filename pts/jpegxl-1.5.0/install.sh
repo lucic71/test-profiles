@@ -10,7 +10,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
 cmake --build . -- -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 cd ~
 echo "#!/bin/sh

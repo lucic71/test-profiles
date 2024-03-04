@@ -10,7 +10,7 @@ cd ~/redis-7.0.4
 make MALLOC=libc -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 cd ~
 echo "#!/bin/sh

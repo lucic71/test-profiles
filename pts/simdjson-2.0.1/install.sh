@@ -12,7 +12,7 @@ make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 echo "#!/bin/sh
 cd simdjson-2.0.4/build/benchmark

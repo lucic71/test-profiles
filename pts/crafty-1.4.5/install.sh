@@ -21,7 +21,7 @@ echo $? > ~/install-exit-status
 
 cd ~
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 echo "#!/bin/sh
 $NUMACTL ./crafty \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > crafty-benchmark

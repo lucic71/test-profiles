@@ -16,7 +16,7 @@ echo $? > ~/install-exit-status
 
 cd ~
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 echo "#!/bin/sh
 cd libjpeg-turbo-2.1.0/build

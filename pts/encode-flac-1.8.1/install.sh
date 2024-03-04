@@ -14,7 +14,7 @@ else
 fi
 make install
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 cd ~
 rm -rf flac-1.4.2

@@ -16,7 +16,7 @@ make pbzip2-static
 echo $? > ~/install-exit-status
 
 cd ~
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 cat > compress-pbzip2 <<EOT
 #!/bin/sh
 cd pbzip2-1.1.13/

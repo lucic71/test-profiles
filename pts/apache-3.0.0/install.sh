@@ -42,7 +42,7 @@ cd wrk-4.2.0
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 echo "#!/bin/sh
 $NUMACTL ./wrk-4.2.0/wrk -t 1 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > apache

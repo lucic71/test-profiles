@@ -5,7 +5,7 @@ CFLAGS="-O3 -march=native $CFLAGS" ./configure --disable-native-tests --disable-
 CFLAGS="-O3 -march=native $CFLAGS" make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~/
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 echo "#!/bin/sh
 cd john-c7cacb14f5ed20aca56a52f1ac0cd4d5035084b6/run/
 $NUMACTL ./john \$@ > \$LOG_FILE 2>&1

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 tar -xf sqlite-330-for-speedtest.tar.gz
 cd sqlite

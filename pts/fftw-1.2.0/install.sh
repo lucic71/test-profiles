@@ -33,7 +33,7 @@ cd ~/fftw-stock
 ./configure --enable-threads $AVX_TUNING
 make -j $NUM_CPU_JOBS
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 cd ~/
 echo "

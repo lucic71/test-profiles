@@ -11,7 +11,7 @@ else
 	echo $? > ~/install-exit-status
 fi
 cd ~
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 echo "#!/bin/bash
 cd QuantLib-1.32/build
 $NUMACTL ./test-suite/quantlib-benchmark > \$LOG_FILE 2>&1

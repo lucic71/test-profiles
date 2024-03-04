@@ -28,7 +28,7 @@ rm -rf gm_/share/man/
 
 ./gm_/bin/gm convert sample-photo-6000x4000.JPG input.mpc
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 
 echo "#!/bin/sh
 $NUMACTL ./gm_/bin/gm benchmark -duration 60 convert input.mpc \$@ null: > \$LOG_FILE 2>&1

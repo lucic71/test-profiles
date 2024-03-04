@@ -40,7 +40,7 @@ then
 	sed -i -e "s|/bin/bash|/usr/pkg/bin/bash|g" mafft_/mafft
 fi
 
-NUMACTL="numactl --membind=0 --cpunodebind=0 --preferred=0 -- "
+NUMACTL="numactl --membind=0 --cpunodebind=0 -- "
 cat>mafft<<EOT
 #!/bin/sh
 cd mafft_/
