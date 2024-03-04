@@ -11,7 +11,7 @@
       <PlatformSpecific>Linux</PlatformSpecific>
     </Package>
     <Package>
-      <URL>https://clc-gitlab.cs.uiowa.edu:2443/SMT-LIB-benchmarks/QF_UFBV/-/raw/master/calc2/calc2_sec2_shifter_mult_bmc30.smt2?inline=false</URL>
+      <URL>https://raw.githubusercontent.com/lucic71/test-profiles/ub/assets/calc2_sec2_shifter_mult_bmc30.smt2</URL>
       <MD5>24d4b83d66709c8a9a9a6f13aecbce6d</MD5>
       <SHA256>33e688c7195c3d486f264774ec1758613330d099a55e6a452e9b3968c8f28a60</SHA256>
       <FileName>1.smt2</FileName>
@@ -19,11 +19,11 @@
       <PlatformSpecific>Linux</PlatformSpecific>
     </Package>
     <Package>
-      <URL>https://clc-gitlab.cs.uiowa.edu:2443/SMT-LIB-benchmarks/UFBV/-/raw/master/20210301-Alive2/gcc/108_gcc.smt2?inline=false</URL>
-      <MD5>690720236953e12fdfbbab698f519976</MD5>
-      <SHA256>e4c8701b4e454ca12a9a00d969a2f663bfbbe587327b055ec0a1c2065ee3f9ea</SHA256>
+      <URL>https://raw.githubusercontent.com/lucic71/test-profiles/ub/assets/normalized-j12021_4-sat.smt2</URL>
+      <MD5>70a2da2a37787aa148e3caf9b43b2611</MD5>
+      <SHA256>a98e9e53c037d20cafc2bfa26497ce7effa1fe979eedd32d4c286eb4a37fe5f2</SHA256>
       <FileName>2.smt2</FileName>
-      <FileSize>80692</FileSize>
+      <FileSize>9003809</FileSize>
       <PlatformSpecific>Linux</PlatformSpecific>
     </Package>
     <Package>
