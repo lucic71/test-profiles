@@ -6,7 +6,7 @@ $CC $CFLAGS -o scimark2 *.c -lm
 echo $? > ~/install-exit-status
 cd ..
 
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 echo "#!/bin/sh
 cd scimark2_files/
 $TASKSET ./scimark2 -large > \$LOG_FILE 2>&1" > scimark2

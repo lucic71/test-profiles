@@ -11,7 +11,7 @@ else
 	echo $? > ~/install-exit-status
 fi
 cd ~
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 echo "#!/bin/bash
 cd QuantLib-1.32/build
 $TASKSET ./test-suite/quantlib-benchmark > \$LOG_FILE 2>&1

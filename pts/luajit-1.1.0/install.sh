@@ -5,7 +5,7 @@ cd LuaJIT-Git
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 
 cd ~
 echo "#!/bin/sh

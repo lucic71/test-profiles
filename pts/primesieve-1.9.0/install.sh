@@ -15,7 +15,7 @@ else
 fi
 cd ~
 
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 echo "#!/bin/sh
 $TASKSET primesieve-$version/./primesieve -t 1 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > primesieve-test

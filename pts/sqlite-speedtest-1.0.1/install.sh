@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 
 tar -xf sqlite-330-for-speedtest.tar.gz
 cd sqlite

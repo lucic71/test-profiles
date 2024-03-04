@@ -16,7 +16,7 @@ make pbzip2-static
 echo $? > ~/install-exit-status
 
 cd ~
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 cat > compress-pbzip2 <<EOT
 #!/bin/sh
 cd pbzip2-1.1.13/

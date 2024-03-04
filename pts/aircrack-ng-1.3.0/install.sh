@@ -18,7 +18,7 @@ else
 fi
 echo $? > ~/install-exit-status
 
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 
 cd ~
 echo "#!/bin/sh

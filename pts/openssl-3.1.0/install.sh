@@ -5,7 +5,7 @@ cd openssl-3.1.0
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 echo "#!/bin/sh
 cd openssl-3.1.0
 LD_LIBRARY_PATH=.:\$LD_LIBRARY_PATH $TASKSET ./apps/openssl speed -multi 1 -seconds 30 \$@ > \$LOG_FILE 2>&1

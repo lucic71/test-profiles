@@ -16,7 +16,7 @@ echo $? > ~/install-exit-status
 
 cd ~
 
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 
 echo "#!/bin/sh
 cd libjpeg-turbo-2.1.0/build

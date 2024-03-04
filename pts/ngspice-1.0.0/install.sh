@@ -8,7 +8,7 @@ cd ngspice-34
 make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 
 echo "#!/bin/sh
 

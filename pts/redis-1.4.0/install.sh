@@ -10,7 +10,7 @@ cd ~/redis-7.0.4
 make MALLOC=libc -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
-TASKSET="taskset -c 0"
+TASKSET="taskset -c 1"
 
 cd ~
 echo "#!/bin/sh
