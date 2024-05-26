@@ -2,8 +2,8 @@
 
 TASKSET="taskset -c 1"
 
-tar -xf sqlite-330-for-speedtest.tar.gz
-cd sqlite
+tar -xf sqlite-3460-for-speedtest.tar.gz
+cd sqlite-version-3.46.0
 ./configure
 if [ $OS_TYPE = "BSD" ]
 then
@@ -16,7 +16,7 @@ echo $? > ~/install-exit-status
 cd ~
 
 echo "#!/bin/sh
-cd sqlite
+cd sqlite-version-3.46.0
 $TASKSET ./speedtest1 \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > sqlite-speedtest
 chmod +x sqlite-speedtest

@@ -3,11 +3,11 @@
 <PhoronixTestSuite>
   <Downloads>
     <Package>
-      <URL>http://www.phoronix-test-suite.com/benchmark-files/sqlite-330-for-speedtest.tar.gz</URL>
-      <MD5>2f18e8fa835b7a6d7366bc6109614031</MD5>
-      <SHA256>7ce167db515e3ea48681a2cbcf62f454cdaa181a25b376d4123f532cfbe3e510</SHA256>
-      <FileName>sqlite-330-for-speedtest.tar.gz</FileName>
-      <FileSize>11158769</FileSize>
+      <URL>https://codeload.github.com/sqlite/sqlite/tar.gz/refs/tags/version-3.46.0</URL>
+      <MD5>e605bc32f41b75bfcb22741ef0448d5d</MD5>
+      <SHA256>ae85b5545f6171694f4d7f915e8e87a936fcb1a56409e5fb3da89d52e3c224cc</SHA256>
+      <FileName>sqlite-3460-for-speedtest.tar.gz</FileName>
+      <FileSize>12892680</FileSize>
     </Package>
   </Downloads>
 </PhoronixTestSuite>
