@@ -21,7 +21,7 @@ echo $? > ~/install-exit-status
 
 cd ~
 
-TASKSET="taskset -c 1"
+TASKSET="sudo nice -n -20 taskset -c 1"
 echo "#!/bin/sh
 $TASKSET ./crafty \$@ > \$LOG_FILE 2>&1
 echo \$? > ~/test-exit-status" > crafty-benchmark
