@@ -20,9 +20,6 @@ cd ~
 rm -rf flac-1.4.2
 rm -rf flac_/share/
 echo "#!/bin/sh
-for i in `seq 1 10`
-do
-	$TASKSET ./flac_/bin/flac --best \$TEST_EXTENDS/pts-trondheim.wav -f -o output 2>&1
-done
+$TASKSET ./flac_/bin/flac --best \$TEST_EXTENDS/pts-trondheim.wav -f -o output 2>&1
 echo \$? > ~/test-exit-status" > encode-flac
 chmod +x encode-flac
