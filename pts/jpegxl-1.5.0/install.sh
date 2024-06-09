@@ -6,7 +6,7 @@ cd libjxl-0.7.0
 ./deps.sh
 mkdir build
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DJPEGXL_FORCE_SYSTEM_BROTLI=ON
 cmake --build . -- -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 
