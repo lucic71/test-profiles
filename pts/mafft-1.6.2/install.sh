@@ -4,6 +4,7 @@ rm -rf $HOME/mafft_
 mkdir $HOME/mafft_
 tar -xvf mafft-7.471-without-extensions-src.tgz
 cd mafft-7.471-without-extensions/core/
+find . -name Makefile | xargs -I{} sed -i 's/CC = gcc//g' {}
 
 if [ $OS_TYPE = "BSD" ]
 then

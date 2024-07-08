@@ -10,27 +10,32 @@ cp -a fftw-stock fftw-mr
 AVX_TUNING=""
 if [ $OS_TYPE = "Linux" ]
 then
-    if grep avx512 /proc/cpuinfo > /dev/null
+    if grep -i amd /proc/cpuinfo > /dev/null
     then
-	AVX_TUNING="$AVX_TUNING --enable-sse --enable-avx512"
-    fi
-    if grep avx2 /proc/cpuinfo > /dev/null
-    then
-	AVX_TUNING="$AVX_TUNING --enable-sse --enable-avx2"
-    fi
-    if `lscpu | grep -i arm > /dev/null`
-    then
-	AVX_TUNING="$AVX_TUNING --enable-neon"
+	AVX_TUNING="$AVX_TUNING"
+    else
+        if grep avx512 /proc/cpuinfo > /dev/null
+        then
+            AVX_TUNING="$AVX_TUNING --enable-sse --enable-avx512"
+        fi
+        if grep avx2 /proc/cpuinfo > /dev/null
+        then
+            AVX_TUNING="$AVX_TUNING --enable-sse --enable-avx2"
+        fi
+        if `lscpu | grep -i arm > /dev/null`
+        then
+            AVX_TUNING="$AVX_TUNING --enable-neon"
+        fi
     fi
 fi
 
 cd fftw-mr
-./configure --enable-float --enable-threads $AVX_TUNING
+./configure --enable-float --enable-threads $AVX_TUNING --disable-openmp
 make -j $NUM_CPU_JOBS
 echo $? > ~/install-exit-status
 
 cd ~/fftw-stock
-./configure --enable-threads $AVX_TUNING
+./configure --enable-threads $AVX_TUNING --disable-openmp
 make -j $NUM_CPU_JOBS
 
 TASKSET="sudo nice -n -20 taskset -c 1"
