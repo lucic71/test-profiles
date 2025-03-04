@@ -15,6 +15,7 @@ then
 else
 	./autogen.sh
 	make -j $NUM_CPU_CORES
+ 	sudo make install
 fi
 echo $? > ~/install-exit-status
 
