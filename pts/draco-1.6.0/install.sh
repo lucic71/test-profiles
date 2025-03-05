@@ -8,7 +8,7 @@ make -j $NUM_CPU_CORES
 echo $? > ~/install-exit-status
 cd ~
 unzip -o church-facade-ply.zip
-mv Church\ façade.ply draco-1.5.6/build/church.ply
+mv Church\ fa*.ply draco-1.5.6/build/church.ply
 unzip -o lion-statue_ply.zip
 mv Lion\ statue_ply/Lion\ statue.ply draco-1.5.6/build/lion.ply
 TASKSET="sudo nice -n -20 taskset -c 1"
