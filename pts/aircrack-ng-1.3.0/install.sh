@@ -19,7 +19,7 @@ else
 fi
 echo $? > ~/install-exit-status
 
-TASKSET="sudo nice -n -20 taskset -c 1"
+TASKSET="sudo nice -n -20 taskset -c 0"
 
 cd ~
 echo "#!/bin/sh

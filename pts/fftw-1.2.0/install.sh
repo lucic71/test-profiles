@@ -38,7 +38,7 @@ cd ~/fftw-stock
 ./configure --enable-threads $AVX_TUNING --disable-openmp
 make -j $NUM_CPU_JOBS
 
-TASKSET="sudo nice -n -20 taskset -c 1"
+TASKSET="sudo nice -n -20 taskset -c 0"
 
 cd ~/
 echo "
